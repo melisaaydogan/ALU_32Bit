@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity right_shift is
+
+   generic (N:integer:=32);
+   port( M : in std_logic_vector(N-1 downto 0);
+       	rs:out std_logic_vector(N-1 downto 0));
+	
+end right_shift;
+
+architecture behavioral of right_shift is
+begin
+process (M)
+begin
+ rs<='0' & M(N-1 downto 1);      
+-- rs_kon<= to_stdlogicvector(to_bitvector(std_logic_vector(M)) srl 1);
+
+ end process;
+end behavioral;

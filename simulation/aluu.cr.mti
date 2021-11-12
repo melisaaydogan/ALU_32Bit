@@ -1,0 +1,28 @@
+C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht {2 {vcom -work work -2002 -explicit C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity alu_32bit_vhd_tst
+-- Compiling architecture alu_32bit_arch of alu_32bit_vhd_tst
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(72): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(76): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(80): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(84): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(88): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(92): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(95): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(98): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(102): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(105): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(108): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(112): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(115): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(119): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(123): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(127): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(131): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(134): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: [4] C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht(138): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}}

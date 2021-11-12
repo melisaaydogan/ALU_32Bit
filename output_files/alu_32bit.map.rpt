@@ -1,0 +1,885 @@
+Analysis & Synthesis report for alu_32bit
+Wed Oct 21 19:21:24 2020
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: Top-level Entity: |alu_32bit
+ 11. Parameter Settings for User Entity Instance: and_gate:M1
+ 12. Parameter Settings for User Entity Instance: nand_gate:M2
+ 13. Parameter Settings for User Entity Instance: or_gate:M3
+ 14. Parameter Settings for User Entity Instance: nor_gate:M4
+ 15. Parameter Settings for User Entity Instance: xor_gate:M5
+ 16. Parameter Settings for User Entity Instance: xnor_gate:M6
+ 17. Parameter Settings for User Entity Instance: not_gate:M7
+ 18. Parameter Settings for User Entity Instance: adder:M8
+ 19. Parameter Settings for User Entity Instance: subtractor:M9
+ 20. Parameter Settings for User Entity Instance: multiplier:M10
+ 21. Parameter Settings for User Entity Instance: divider:M11
+ 22. Parameter Settings for User Entity Instance: mod_operator:M12
+ 23. Parameter Settings for User Entity Instance: comparator:M13
+ 24. Parameter Settings for User Entity Instance: right_shift:M14
+ 25. Parameter Settings for User Entity Instance: left_shift:M15
+ 26. Parameter Settings for User Entity Instance: right_rotate:M16
+ 27. Parameter Settings for User Entity Instance: right_rotate:M16|control:U1R
+ 28. Parameter Settings for User Entity Instance: right_rotate:M16|control:U1R|mod_operator:c1
+ 29. Parameter Settings for User Entity Instance: left_rotate:M17
+ 30. Parameter Settings for User Entity Instance: left_rotate:M17|control:U1L
+ 31. Parameter Settings for User Entity Instance: left_rotate:M17|control:U1L|mod_operator:c1
+ 32. Parameter Settings for User Entity Instance: a_right_shift:M18
+ 33. Parameter Settings for User Entity Instance: a_left_shift:M19
+ 34. Port Connectivity Checks: "left_rotate:M17|control:U1L"
+ 35. Port Connectivity Checks: "right_rotate:M16|control:U1R|mod_operator:c1"
+ 36. Port Connectivity Checks: "right_rotate:M16|control:U1R"
+ 37. Port Connectivity Checks: "subtractor:M9|full_subtractor:\S1:0:S2:first"
+ 38. Port Connectivity Checks: "adder:M8|full_adder:\A1:0:A2:first"
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Oct 21 19:21:24 2020           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; alu_32bit                                       ;
+; Top-level Entity Name              ; alu_32bit                                       ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 8,252                                           ;
+;     Total combinational functions  ; 8,252                                           ;
+;     Dedicated logic registers      ; 0                                               ;
+; Total registers                    ; 0                                               ;
+; Total pins                         ; 138                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C70F896C6       ;                    ;
+; Top-level entity name                                                      ; alu_32bit          ; alu_32bit          ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                           ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                    ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
+; adder.vhd                        ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/adder.vhd           ;         ;
+; full_adder.vhd                   ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/full_adder.vhd      ;         ;
+; half_adder.vhd                   ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/half_adder.vhd      ;         ;
+; xor_gate_1bit.vhd                ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/xor_gate_1bit.vhd   ;         ;
+; or_gate_1bit.vhd                 ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/or_gate_1bit.vhd    ;         ;
+; and_gate_1bit.vhd                ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/and_gate_1bit.vhd   ;         ;
+; divider.vhd                      ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/divider.vhd         ;         ;
+; mod_operator.vhd                 ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/mod_operator.vhd    ;         ;
+; full_subtractor.vhd              ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/full_subtractor.vhd ;         ;
+; half_subtractor.vhd              ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/half_subtractor.vhd ;         ;
+; and_gate.vhd                     ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/and_gate.vhd        ;         ;
+; nand_gate.vhd                    ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/nand_gate.vhd       ;         ;
+; or_gate.vhd                      ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/or_gate.vhd         ;         ;
+; nor_gate.vhd                     ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/nor_gate.vhd        ;         ;
+; xor_gate.vhd                     ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/xor_gate.vhd        ;         ;
+; xnor_gate.vhd                    ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/xnor_gate.vhd       ;         ;
+; not_gate.vhd                     ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/not_gate.vhd        ;         ;
+; multiplier.vhd                   ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/multiplier.vhd      ;         ;
+; not_gate_1bit.vhd                ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/not_gate_1bit.vhd   ;         ;
+; subtractor.vhd                   ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/subtractor.vhd      ;         ;
+; alu_32bit.vhd                    ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/alu_32bit.vhd       ;         ;
+; comparator.vhd                   ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/comparator.vhd      ;         ;
+; comp_4bit.vhd                    ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/comp_4bit.vhd       ;         ;
+; right_shift.vhd                  ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/right_shift.vhd     ;         ;
+; left_shift.vhd                   ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/left_shift.vhd      ;         ;
+; right_ rotate.vhd                ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/right_ rotate.vhd   ;         ;
+; left_rotate.vhd                  ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/left_rotate.vhd     ;         ;
+; a_right_shift.vhd                ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/a_right_shift.vhd   ;         ;
+; a_left_shift.vhd                 ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/a_left_shift.vhd    ;         ;
+; control.vhd                      ; yes             ; User VHDL File  ; C:/altera/13.0sp1/alu_32bit/control.vhd         ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------+---------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimated Total logic elements              ; 8,252      ;
+;                                             ;            ;
+; Total combinational functions               ; 8252       ;
+; Logic element usage by number of LUT inputs ;            ;
+;     -- 4 input functions                    ; 1122       ;
+;     -- 3 input functions                    ; 5435       ;
+;     -- <=2 input functions                  ; 1695       ;
+;                                             ;            ;
+; Logic elements by mode                      ;            ;
+;     -- normal mode                          ; 3891       ;
+;     -- arithmetic mode                      ; 4361       ;
+;                                             ;            ;
+; Total registers                             ; 0          ;
+;     -- Dedicated logic registers            ; 0          ;
+;     -- I/O registers                        ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 138        ;
+; Embedded Multiplier 9-bit elements          ; 0          ;
+; Maximum fan-out node                        ; alu_in2[3] ;
+; Maximum fan-out                             ; 311        ;
+; Total fan-out                               ; 24178      ;
+; Average fan-out                             ; 2.88       ;
++---------------------------------------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                   ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+; |alu_32bit                               ; 8252 (643)        ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 138  ; 0            ; |alu_32bit                                                                                      ; work         ;
+;    |a_left_shift:M19|                    ; 36 (36)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|a_left_shift:M19                                                                     ; work         ;
+;    |a_right_shift:M18|                   ; 29 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|a_right_shift:M18                                                                    ; work         ;
+;    |adder:M8|                            ; 30 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8                                                                             ; work         ;
+;       |full_adder:\A1:10:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:10:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:10:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:11:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:11:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:11:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:12:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:12:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:12:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:13:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:13:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:13:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:14:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:14:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:14:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:15:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:15:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:15:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:16:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:16:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:16:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:17:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:17:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:17:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:18:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:18:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:18:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:19:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:19:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:19:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:1:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:1:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:1:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;       |full_adder:\A1:20:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:20:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:20:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:21:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:21:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:21:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:22:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:22:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:22:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:23:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:23:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:23:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:24:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:24:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:24:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:25:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:25:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:25:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:26:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:26:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:26:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:27:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:27:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:27:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:28:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:28:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:28:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:29:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:29:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:29:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:2:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:2:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:2:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;       |full_adder:\A1:30:A3:middle|      ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:30:A3:middle                                                 ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:30:A3:middle|or_gate_1bit:F3                                 ; work         ;
+;       |full_adder:\A1:3:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:3:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:3:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;       |full_adder:\A1:4:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:4:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:4:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;       |full_adder:\A1:5:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:5:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:5:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;       |full_adder:\A1:6:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:6:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:6:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;       |full_adder:\A1:7:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:7:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:7:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;       |full_adder:\A1:8:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:8:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:8:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;       |full_adder:\A1:9:A3:middle|       ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:9:A3:middle                                                  ; work         ;
+;          |or_gate_1bit:F3|               ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|adder:M8|full_adder:\A1:9:A3:middle|or_gate_1bit:F3                                  ; work         ;
+;    |comparator:M13|                      ; 89 (25)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13                                                                       ; work         ;
+;       |comp_4bit:U1|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13|comp_4bit:U1                                                          ; work         ;
+;       |comp_4bit:U2|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13|comp_4bit:U2                                                          ; work         ;
+;       |comp_4bit:U3|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13|comp_4bit:U3                                                          ; work         ;
+;       |comp_4bit:U4|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13|comp_4bit:U4                                                          ; work         ;
+;       |comp_4bit:U5|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13|comp_4bit:U5                                                          ; work         ;
+;       |comp_4bit:U6|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13|comp_4bit:U6                                                          ; work         ;
+;       |comp_4bit:U7|                     ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13|comp_4bit:U7                                                          ; work         ;
+;       |comp_4bit:U8|                     ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|comparator:M13|comp_4bit:U8                                                          ; work         ;
+;    |divider:M11|                         ; 3106 (3106)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|divider:M11                                                                          ; work         ;
+;    |left_rotate:M17|                     ; 66 (66)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|left_rotate:M17                                                                      ; work         ;
+;    |left_shift:M15|                      ; 216 (216)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|left_shift:M15                                                                       ; work         ;
+;    |multiplier:M10|                      ; 2012 (2012)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|multiplier:M10                                                                       ; work         ;
+;    |right_rotate:M16|                    ; 1824 (100)        ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|right_rotate:M16                                                                     ; work         ;
+;       |control:U1R|                      ; 1724 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|right_rotate:M16|control:U1R                                                         ; work         ;
+;          |mod_operator:c1|               ; 1724 (1724)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|right_rotate:M16|control:U1R|mod_operator:c1                                         ; work         ;
+;    |right_shift:M14|                     ; 163 (163)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|right_shift:M14                                                                      ; work         ;
+;    |subtractor:M9|                       ; 38 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9                                                                        ; work         ;
+;       |full_subtractor:\S1:10:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:10:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:10:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:11:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:11:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:11:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:13:S3:middle| ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:13:S3:middle                                       ; work         ;
+;          |half_subtractor:FS2|           ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:13:S3:middle|half_subtractor:FS2                   ; work         ;
+;             |and_gate_1bit:HS3|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:13:S3:middle|half_subtractor:FS2|and_gate_1bit:HS3 ; work         ;
+;             |xor_gate_1bit:HS1|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:13:S3:middle|half_subtractor:FS2|xor_gate_1bit:HS1 ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:13:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:14:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:14:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:14:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:15:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:15:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:15:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:16:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:16:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:16:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:17:S3:middle| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:17:S3:middle                                       ; work         ;
+;          |half_subtractor:FS2|           ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:17:S3:middle|half_subtractor:FS2                   ; work         ;
+;             |xor_gate_1bit:HS1|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:17:S3:middle|half_subtractor:FS2|xor_gate_1bit:HS1 ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:17:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:18:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:18:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:18:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:19:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:19:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:19:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:1:S3:middle|  ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:1:S3:middle                                        ; work         ;
+;          |half_subtractor:FS2|           ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:1:S3:middle|half_subtractor:FS2                    ; work         ;
+;             |xor_gate_1bit:HS1|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:1:S3:middle|half_subtractor:FS2|xor_gate_1bit:HS1  ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:1:S3:middle|or_gate_1bit:FS3                       ; work         ;
+;       |full_subtractor:\S1:21:S3:middle| ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:21:S3:middle                                       ; work         ;
+;          |half_subtractor:FS2|           ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:21:S3:middle|half_subtractor:FS2                   ; work         ;
+;             |and_gate_1bit:HS3|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:21:S3:middle|half_subtractor:FS2|and_gate_1bit:HS3 ; work         ;
+;             |xor_gate_1bit:HS1|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:21:S3:middle|half_subtractor:FS2|xor_gate_1bit:HS1 ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:21:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:22:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:22:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:22:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:23:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:23:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:23:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:24:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:24:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:24:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:25:S3:middle| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:25:S3:middle                                       ; work         ;
+;          |half_subtractor:FS2|           ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:25:S3:middle|half_subtractor:FS2                   ; work         ;
+;             |xor_gate_1bit:HS1|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:25:S3:middle|half_subtractor:FS2|xor_gate_1bit:HS1 ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:25:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:26:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:26:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:26:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:27:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:27:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:27:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:28:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:28:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:28:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:29:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:29:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:29:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:30:S3:middle| ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:30:S3:middle                                       ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:30:S3:middle|or_gate_1bit:FS3                      ; work         ;
+;       |full_subtractor:\S1:3:S3:middle|  ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:3:S3:middle                                        ; work         ;
+;          |half_subtractor:FS2|           ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:3:S3:middle|half_subtractor:FS2                    ; work         ;
+;             |and_gate_1bit:HS3|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:3:S3:middle|half_subtractor:FS2|and_gate_1bit:HS3  ; work         ;
+;             |xor_gate_1bit:HS1|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:3:S3:middle|half_subtractor:FS2|xor_gate_1bit:HS1  ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:3:S3:middle|or_gate_1bit:FS3                       ; work         ;
+;       |full_subtractor:\S1:4:S3:middle|  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:4:S3:middle                                        ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:4:S3:middle|or_gate_1bit:FS3                       ; work         ;
+;       |full_subtractor:\S1:6:S3:middle|  ; 3 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:6:S3:middle                                        ; work         ;
+;          |half_subtractor:FS2|           ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:6:S3:middle|half_subtractor:FS2                    ; work         ;
+;             |and_gate_1bit:HS3|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:6:S3:middle|half_subtractor:FS2|and_gate_1bit:HS3  ; work         ;
+;             |xor_gate_1bit:HS1|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:6:S3:middle|half_subtractor:FS2|xor_gate_1bit:HS1  ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:6:S3:middle|or_gate_1bit:FS3                       ; work         ;
+;       |full_subtractor:\S1:7:S3:middle|  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:7:S3:middle                                        ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:7:S3:middle|or_gate_1bit:FS3                       ; work         ;
+;       |full_subtractor:\S1:8:S3:middle|  ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:8:S3:middle                                        ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:8:S3:middle|or_gate_1bit:FS3                       ; work         ;
+;       |full_subtractor:\S1:9:S3:middle|  ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:9:S3:middle                                        ; work         ;
+;          |half_subtractor:FS2|           ; 1 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:9:S3:middle|half_subtractor:FS2                    ; work         ;
+;             |xor_gate_1bit:HS1|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:9:S3:middle|half_subtractor:FS2|xor_gate_1bit:HS1  ; work         ;
+;          |or_gate_1bit:FS3|              ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |alu_32bit|subtractor:M9|full_subtractor:\S1:9:S3:middle|or_gate_1bit:FS3                       ; work         ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |alu_32bit|alu_remainder_divider ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |alu_32bit ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; N              ; 32    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: and_gate:M1 ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 32    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: nand_gate:M2 ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 32    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: or_gate:M3 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; n              ; 32    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: nor_gate:M4 ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 32    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: xor_gate:M5 ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 32    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: xnor_gate:M6 ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 32    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: not_gate:M7 ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 32    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: adder:M8 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; n              ; 32    ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtractor:M9 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; n              ; 32    ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiplier:M10 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; n              ; 32    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divider:M11 ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 32    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mod_operator:M12 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; n              ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: comparator:M13 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; n              ; 32    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: right_shift:M14 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; n              ; 32    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: left_shift:M15 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; n              ; 32    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: right_rotate:M16 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; n              ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: right_rotate:M16|control:U1R ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; n              ; 32    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: right_rotate:M16|control:U1R|mod_operator:c1 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: left_rotate:M17 ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; n              ; 32    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: left_rotate:M17|control:U1L ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; n              ; 32    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: left_rotate:M17|control:U1L|mod_operator:c1 ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: a_right_shift:M18 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; n              ; 32    ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: a_left_shift:M19 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; n              ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "left_rotate:M17|control:U1L"                                                                    ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; q_control[32..6] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "right_rotate:M16|control:U1R|mod_operator:c1" ;
++----------+-------+----------+--------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                    ;
++----------+-------+----------+--------------------------------------------+
+; m[31..6] ; Input ; Info     ; Stuck at GND                               ;
+; m[4..0]  ; Input ; Info     ; Stuck at GND                               ;
+; m[5]     ; Input ; Info     ; Stuck at VCC                               ;
++----------+-------+----------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "right_rotate:M16|control:U1R"                                                                   ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; q_control[32..6] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Port Connectivity Checks: "subtractor:M9|full_subtractor:\S1:0:S2:first" ;
++----------+-------+----------+--------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                    ;
++----------+-------+----------+--------------------------------------------+
+; full_bin ; Input ; Info     ; Stuck at GND                               ;
++----------+-------+----------+--------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "adder:M8|full_adder:\A1:0:A2:first" ;
++----------+-------+----------+----------------------------------+
+; Port     ; Type  ; Severity ; Details                          ;
++----------+-------+----------+----------------------------------+
+; full_cin ; Input ; Info     ; Stuck at GND                     ;
++----------+-------+----------+----------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:24     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Oct 21 19:20:46 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off alu_32bit -c alu_32bit
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file adder.vhd
+    Info (12022): Found design unit 1: adder-behavioral
+    Info (12023): Found entity 1: adder
+Info (12021): Found 2 design units, including 1 entities, in source file full_adder.vhd
+    Info (12022): Found design unit 1: full_adder-behavioral
+    Info (12023): Found entity 1: full_adder
+Info (12021): Found 2 design units, including 1 entities, in source file half_adder.vhd
+    Info (12022): Found design unit 1: half_adder-behavioral
+    Info (12023): Found entity 1: half_adder
+Info (12021): Found 2 design units, including 1 entities, in source file xor_gate_1bit.vhd
+    Info (12022): Found design unit 1: xor_gate_1bit-behavioral
+    Info (12023): Found entity 1: xor_gate_1bit
+Info (12021): Found 2 design units, including 1 entities, in source file or_gate_1bit.vhd
+    Info (12022): Found design unit 1: or_gate_1bit-behavioral
+    Info (12023): Found entity 1: or_gate_1bit
+Info (12021): Found 2 design units, including 1 entities, in source file and_gate_1bit.vhd
+    Info (12022): Found design unit 1: and_gate_1bit-behavioral
+    Info (12023): Found entity 1: and_gate_1bit
+Info (12021): Found 2 design units, including 1 entities, in source file divider.vhd
+    Info (12022): Found design unit 1: divider-behavioral
+    Info (12023): Found entity 1: divider
+Info (12021): Found 2 design units, including 1 entities, in source file mod_operator.vhd
+    Info (12022): Found design unit 1: mod_operator-behavioral
+    Info (12023): Found entity 1: mod_operator
+Info (12021): Found 2 design units, including 1 entities, in source file full_subtractor.vhd
+    Info (12022): Found design unit 1: full_subtractor-behavioral
+    Info (12023): Found entity 1: full_subtractor
+Info (12021): Found 2 design units, including 1 entities, in source file half_subtractor.vhd
+    Info (12022): Found design unit 1: half_subtractor-behavioral
+    Info (12023): Found entity 1: half_subtractor
+Info (12021): Found 2 design units, including 1 entities, in source file and_gate.vhd
+    Info (12022): Found design unit 1: and_gate-behavioral
+    Info (12023): Found entity 1: and_gate
+Info (12021): Found 2 design units, including 1 entities, in source file nand_gate.vhd
+    Info (12022): Found design unit 1: nand_gate-behavioral
+    Info (12023): Found entity 1: nand_gate
+Info (12021): Found 2 design units, including 1 entities, in source file or_gate.vhd
+    Info (12022): Found design unit 1: or_gate-behavioral
+    Info (12023): Found entity 1: or_gate
+Info (12021): Found 2 design units, including 1 entities, in source file nor_gate.vhd
+    Info (12022): Found design unit 1: nor_gate-behavioral
+    Info (12023): Found entity 1: nor_gate
+Info (12021): Found 2 design units, including 1 entities, in source file xor_gate.vhd
+    Info (12022): Found design unit 1: xor_gate-behavioral
+    Info (12023): Found entity 1: xor_gate
+Info (12021): Found 2 design units, including 1 entities, in source file xnor_gate.vhd
+    Info (12022): Found design unit 1: xnor_gate-behavioral
+    Info (12023): Found entity 1: xnor_gate
+Info (12021): Found 2 design units, including 1 entities, in source file not_gate.vhd
+    Info (12022): Found design unit 1: not_gate-behavioral
+    Info (12023): Found entity 1: not_gate
+Info (12021): Found 2 design units, including 1 entities, in source file multiplier.vhd
+    Info (12022): Found design unit 1: multiplier-behavioral
+    Info (12023): Found entity 1: multiplier
+Info (12021): Found 2 design units, including 1 entities, in source file shift_operator.vhd
+    Info (12022): Found design unit 1: shift_operator-behavioral
+    Info (12023): Found entity 1: shift_operator
+Info (12021): Found 2 design units, including 1 entities, in source file not_gate_1bit.vhd
+    Info (12022): Found design unit 1: not_gate_1bit-behavioral
+    Info (12023): Found entity 1: not_gate_1bit
+Info (12021): Found 2 design units, including 1 entities, in source file subtractor.vhd
+    Info (12022): Found design unit 1: subtractor-behavioral
+    Info (12023): Found entity 1: subtractor
+Info (12021): Found 2 design units, including 1 entities, in source file alu_32bit.vhd
+    Info (12022): Found design unit 1: alu_32bit-behavioral
+    Info (12023): Found entity 1: alu_32bit
+Info (12021): Found 2 design units, including 1 entities, in source file comparator.vhd
+    Info (12022): Found design unit 1: comparator-behavioral
+    Info (12023): Found entity 1: comparator
+Info (12021): Found 2 design units, including 1 entities, in source file comp_4bit.vhd
+    Info (12022): Found design unit 1: comp_4bit-behavioral
+    Info (12023): Found entity 1: comp_4bit
+Info (12021): Found 2 design units, including 1 entities, in source file right_shift.vhd
+    Info (12022): Found design unit 1: right_shift-behavioral
+    Info (12023): Found entity 1: right_shift
+Info (12021): Found 2 design units, including 1 entities, in source file left_shift.vhd
+    Info (12022): Found design unit 1: left_shift-behavioral
+    Info (12023): Found entity 1: left_shift
+Info (12021): Found 2 design units, including 1 entities, in source file right_ rotate.vhd
+    Info (12022): Found design unit 1: right_rotate-behavioral
+    Info (12023): Found entity 1: right_rotate
+Info (12021): Found 2 design units, including 1 entities, in source file left_rotate.vhd
+    Info (12022): Found design unit 1: left_rotate-behavioral
+    Info (12023): Found entity 1: left_rotate
+Info (12021): Found 2 design units, including 1 entities, in source file a_right_shift.vhd
+    Info (12022): Found design unit 1: a_right_shift-behavioral
+    Info (12023): Found entity 1: a_right_shift
+Info (12021): Found 2 design units, including 1 entities, in source file a_left_shift.vhd
+    Info (12022): Found design unit 1: a_left_shift-behavioral
+    Info (12023): Found entity 1: a_left_shift
+Info (12021): Found 2 design units, including 1 entities, in source file control.vhd
+    Info (12022): Found design unit 1: control-behavioral
+    Info (12023): Found entity 1: control
+Info (12127): Elaborating entity "alu_32bit" for the top level hierarchy
+Info (12128): Elaborating entity "and_gate" for hierarchy "and_gate:M1"
+Info (12128): Elaborating entity "nand_gate" for hierarchy "nand_gate:M2"
+Info (12128): Elaborating entity "or_gate" for hierarchy "or_gate:M3"
+Info (12128): Elaborating entity "nor_gate" for hierarchy "nor_gate:M4"
+Info (12128): Elaborating entity "xor_gate" for hierarchy "xor_gate:M5"
+Info (12128): Elaborating entity "xnor_gate" for hierarchy "xnor_gate:M6"
+Info (12128): Elaborating entity "not_gate" for hierarchy "not_gate:M7"
+Info (12128): Elaborating entity "adder" for hierarchy "adder:M8"
+Info (12128): Elaborating entity "full_adder" for hierarchy "adder:M8|full_adder:\A1:0:A2:first"
+Info (12128): Elaborating entity "half_adder" for hierarchy "adder:M8|full_adder:\A1:0:A2:first|half_adder:F1"
+Info (12128): Elaborating entity "xor_gate_1bit" for hierarchy "adder:M8|full_adder:\A1:0:A2:first|half_adder:F1|xor_gate_1bit:H1"
+Info (12128): Elaborating entity "and_gate_1bit" for hierarchy "adder:M8|full_adder:\A1:0:A2:first|half_adder:F1|and_gate_1bit:H2"
+Info (12128): Elaborating entity "or_gate_1bit" for hierarchy "adder:M8|full_adder:\A1:0:A2:first|or_gate_1bit:F3"
+Info (12128): Elaborating entity "subtractor" for hierarchy "subtractor:M9"
+Info (12128): Elaborating entity "full_subtractor" for hierarchy "subtractor:M9|full_subtractor:\S1:0:S2:first"
+Info (12128): Elaborating entity "half_subtractor" for hierarchy "subtractor:M9|full_subtractor:\S1:0:S2:first|half_subtractor:FS1"
+Info (12128): Elaborating entity "not_gate_1bit" for hierarchy "subtractor:M9|full_subtractor:\S1:0:S2:first|half_subtractor:FS1|not_gate_1bit:HS2"
+Info (12128): Elaborating entity "multiplier" for hierarchy "multiplier:M10"
+Info (12128): Elaborating entity "divider" for hierarchy "divider:M11"
+Info (12128): Elaborating entity "mod_operator" for hierarchy "mod_operator:M12"
+Info (12128): Elaborating entity "comparator" for hierarchy "comparator:M13"
+Info (12128): Elaborating entity "comp_4bit" for hierarchy "comparator:M13|comp_4bit:U1"
+Info (12128): Elaborating entity "right_shift" for hierarchy "right_shift:M14"
+Warning (10445): VHDL Subtype or Type Declaration warning at right_shift.vhd(122): subtype or type has null range
+Info (12128): Elaborating entity "left_shift" for hierarchy "left_shift:M15"
+Info (12128): Elaborating entity "right_rotate" for hierarchy "right_rotate:M16"
+Info (12128): Elaborating entity "control" for hierarchy "right_rotate:M16|control:U1R"
+Info (12128): Elaborating entity "left_rotate" for hierarchy "left_rotate:M17"
+Info (12128): Elaborating entity "a_right_shift" for hierarchy "a_right_shift:M18"
+Info (12128): Elaborating entity "a_left_shift" for hierarchy "a_left_shift:M19"
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk"
+Info (21057): Implemented 8390 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 71 input pins
+    Info (21059): Implemented 67 output pins
+    Info (21061): Implemented 8252 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4649 megabytes
+    Info: Processing ended: Wed Oct 21 19:21:24 2020
+    Info: Elapsed time: 00:00:38
+    Info: Total CPU time (on all processors): 00:00:30
+
+

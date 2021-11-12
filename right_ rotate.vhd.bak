@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
+
+entity right_ rotate is
+
+   generic (N:integer:=32);
+   port( M : in std_logic_vector(N-1 downto 0);
+		   rr:out std_logic_vector(N-1 downto 0));
+
+end right_ rotate;
+
+architecture behavioral of right_ rotate is
+
+
+begin
+process (M)
+begin
+
+ rr<=M(0)& M(N-1 downto 1);       rr_kon<= to_stdlogicvector(to_bitvector(std_logic_vector(M)) ror 1);
+
+ end process;
+end behavioral;

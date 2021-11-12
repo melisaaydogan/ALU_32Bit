@@ -1,0 +1,83 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\alu_32bit\simulation\modelsim
+Ealu_32bit
+Z1 w1603297354
+Z2 DPx4 ieee 16 vital_primitives 0 22 9W@YP9_VCb?_GCJ8e:;YQ0
+Z3 DPx9 cycloneii 19 cycloneii_atom_pack 0 22 zUjlM<IUJVWSWg:L2<>ic3
+Z4 DPx4 ieee 12 vital_timing 0 22 7h8zz2S4HVg:a;2TBMI[j1
+Z5 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z6 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z7 DPx9 cycloneii 20 cycloneii_components 0 22 h@gSJ;Al32oYg[7^PbnAR0
+Z8 dC:\altera\13.0sp1\alu_32bit\simulation\modelsim
+Z9 8alu_32bit.vho
+Z10 Falu_32bit.vho
+l0
+L34
+VIF@mVeCRW5PR<;]j_zkP?0
+Z11 OV;C;10.1d;51
+31
+Z12 !s108 1603297384.333000
+Z13 !s90 -reportprogress|300|-93|-work|work|alu_32bit.vho|
+Z14 !s107 alu_32bit.vho|
+Z15 o-93 -work work -O0
+Z16 tExplicit 1
+!s100 G5kAWo2iFOKWG4OlRYSQP3
+!i10b 1
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+DEx4 work 9 alu_32bit 0 22 IF@mVeCRW5PR<;]j_zkP?0
+l12219
+L189
+VB`6:JO]92R=OOPem2SH9P3
+R11
+31
+R12
+R13
+R14
+R15
+R16
+!s100 eBaB_6X^8S:Q@DQdK@a;_2
+!i10b 1
+Ealu_32bit_vhd_tst
+Z17 w1558700962
+R5
+R6
+R8
+Z18 8C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht
+Z19 FC:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht
+l0
+L4
+V=8RkNn<gU`ATd]4Se[]7_2
+!s100 :RDHM=Me6=RY9HR3WekS61
+R11
+31
+!i10b 1
+Z20 !s108 1603297390.030000
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht|
+Z22 !s107 C:/altera/13.0sp1/alu_32bit/simulation/modelsim/alu_32bit.vht|
+R15
+R16
+Aalu_32bit_arch
+R5
+R6
+DEx4 work 17 alu_32bit_vhd_tst 0 22 =8RkNn<gU`ATd]4Se[]7_2
+l30
+L6
+VnPXCmK^>kSG6][;zm8CZ23
+!s100 0LHzj9:1zh:[QK<RDhNhE1
+R11
+31
+!i10b 1
+R20
+R21
+R22
+R15
+R16
